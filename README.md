@@ -1,0 +1,1 @@
+简化自 https://github.com/orhanobut/logger
