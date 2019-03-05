@@ -20,11 +20,11 @@ Step 2. Add the dependency
 	}
 
 Step 3. Use
-
+ ```
   //open logger
   QLogger.init(BuildConfig.DEBUG)
   //use
   QLogger.e("xxxxxxxxxxxx")
-
+ ```
 
 简化自 https://github.com/orhanobut/logger
