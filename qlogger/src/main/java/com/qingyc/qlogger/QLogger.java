@@ -352,7 +352,7 @@ public final class QLogger {
 
     private static void logChunk(int logType, String tag, String chunk) {
 
-        if (!BuildConfig.DEBUG) {
+        if (settings.logLevel == LogLevel.NONE) {
             return;
         }
         String finalTag = formatTag(tag) + "";
@@ -399,7 +399,7 @@ public final class QLogger {
 
     private static String formatTag(String tag) {
         if (!TextUtils.isEmpty(tag) && !TextUtils.equals(TAG, tag)) {
-            return TAG + "  " + BuildConfig.APPLICATION_ID + " : " + tag;
+            return TAG + " : " + tag;
         }
         return TAG;
     }
