@@ -1,4 +1,4 @@
-# GuideTipView
+# QLogger
 A Simple Android Logger
 
 
