@@ -8,9 +8,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-//import com.qingyc.qlogger.QLogger;
-import com.qingyc.demo.R;
+import com.qingyc.qlogger.BuildConfig;
 import com.qingyc.qlogger.QLogger;
+
+//import com.qingyc.qlogger.QLogger;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,14 +22,15 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        QLogger.init(BuildConfig.DEBUG);
+
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                QLogger.e("QLogger test.......");
+                QLogger.e("QLogger test......." + System.currentTimeMillis());
             }
         });
-
     }
 
     @Override

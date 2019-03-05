@@ -57,6 +57,43 @@ public final class QLogger {
     private static String TAG = "Q_LOGGER_";
 
 
+    /**
+     * It is used to get the settings object in order to change settings
+     *
+     * @return the settings object
+     */
+    public static Settings init(Boolean openLogger) {
+        if (openLogger) {
+            settings.logLevel = LogLevel.FULL;
+        } else {
+            settings.logLevel = LogLevel.NONE;
+
+        }
+        return settings;
+    }
+
+    /**
+     * It is used to change the tag
+     *
+     * @param tag is the given string which will be used in Logger
+     */
+    public static Settings init(Boolean openLogger, String tag) {
+        if (tag == null) {
+            throw new NullPointerException("tag may not be null");
+        }
+        if (tag.trim().length() == 0) {
+            throw new IllegalStateException("tag may not be empty");
+        }
+        TAG = tag;
+        return init(openLogger);
+    }
+
+    public static void close() {
+        LogLevel logLevel = LogLevel.NONE;
+        settings.setLogLevel(logLevel);
+    }
+
+
     public static synchronized void d(String message) {
         d(TAG, message);
     }
@@ -374,7 +411,7 @@ public final class QLogger {
         /**
          * Determines how logs will printed
          */
-        LogLevel logLevel = LogLevel.FULL;
+        LogLevel logLevel = LogLevel.NONE;
 
         public Settings hideThreadInfo() {
             showThreadInfo = false;
